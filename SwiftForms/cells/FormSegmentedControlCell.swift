@@ -33,7 +33,9 @@ public class FormSegmentedControlCell: FormBaseCell {
         segmentedControl.setContentCompressionResistancePriority(500, forAxis: .Horizontal)
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        
+      
+        segmentedControl.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         contentView.addSubview(titleLabel)
         contentView.addSubview(segmentedControl)
         
@@ -45,7 +47,9 @@ public class FormSegmentedControlCell: FormBaseCell {
     
     public override func update() {
         super.update()
-        
+      
+        segmentedControl.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         titleLabel.text = rowDescriptor.title
         updateSegmentedControl()
         

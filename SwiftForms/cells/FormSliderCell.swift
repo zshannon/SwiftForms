@@ -23,7 +23,9 @@ public class FormSliderCell: FormTitleCell {
         sliderView.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        
+      
+        sliderView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         contentView.addSubview(titleLabel)
         contentView.addSubview(sliderView)
         
@@ -48,7 +50,9 @@ public class FormSliderCell: FormTitleCell {
         if let continuous = rowDescriptor.configuration[FormRowDescriptor.Configuration.Continuous] as? Bool {
             sliderView.continuous = continuous
         }
-        
+      
+        sliderView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         titleLabel.text = rowDescriptor.title
         
         if rowDescriptor.value != nil {

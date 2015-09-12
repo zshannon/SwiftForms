@@ -36,7 +36,9 @@ public class FormTextViewCell : FormBaseCell, UITextViewDelegate {
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        
+      
+        textField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         contentView.addSubview(titleLabel)
         contentView.addSubview(textField)
         
@@ -48,10 +50,16 @@ public class FormTextViewCell : FormBaseCell, UITextViewDelegate {
         contentView.addConstraint(NSLayoutConstraint(item: textField, attribute: .Bottom, relatedBy: .Equal, toItem: contentView, attribute: .Bottom, multiplier: 1.0, constant: 0.0))
         
         textField.delegate = self
+      
+        if (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool) {
+            textField.userInteractionEnabled = false
+        }
     }
     
     public override func update() {
-        
+      
+        textField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         titleLabel.text = rowDescriptor.title
         textField.text = rowDescriptor.value as? String
         

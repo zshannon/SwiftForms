@@ -47,6 +47,8 @@ public class FormRowDescriptor: NSObject {
     
     public struct Configuration {
         public static let Required = "FormRowDescriptorConfigurationRequired"
+      
+        public static let ReadOnly = "FormRowDescriptorConfigurationReadOnly"
 
         public static let CellClass = "FormRowDescriptorConfigurationCellClass"
         public static let CheckmarkAccessoryView = "FormRowDescriptorConfigurationCheckmarkAccessoryView"
@@ -106,6 +108,7 @@ public class FormRowDescriptor: NSObject {
     public override init() {
         super.init()
         configuration[Configuration.Required] = true
+        configuration[Configuration.ReadOnly] = false
         configuration[Configuration.AllowsMultipleSelection] = false
         configuration[Configuration.ShowsInputToolbar] = false
     }

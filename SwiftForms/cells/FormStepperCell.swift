@@ -26,7 +26,9 @@ public class FormStepperCell: FormTitleCell {
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         countLabel.textAlignment = .Right
-        
+      
+        stepperView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         contentView.addSubview(titleLabel)
         contentView.addSubview(countLabel)
         contentView.addSubview(stepperView)
@@ -40,7 +42,9 @@ public class FormStepperCell: FormTitleCell {
     
     public override func update() {
         super.update()
-        
+      
+        stepperView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         if let maximumValue = rowDescriptor.configuration[FormRowDescriptor.Configuration.MaximumValue] as? Double {
             stepperView.maximumValue = maximumValue
         }

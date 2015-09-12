@@ -24,6 +24,9 @@ public class FormDateCell: FormValueCell {
         hiddenTextField.inputView = datePicker
         datePicker.datePickerMode = .Date
         datePicker.addTarget(self, action: "valueChanged:", forControlEvents: .ValueChanged)
+      
+        hiddenTextField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+        datePicker.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
     }
     
     public override func update() {
@@ -34,7 +37,10 @@ public class FormDateCell: FormValueCell {
                 hiddenTextField.inputAccessoryView = inputAccesoryView()
             }
         }
-        
+      
+        hiddenTextField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+        datePicker.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         titleLabel.text = rowDescriptor.title
         
         switch rowDescriptor.rowType {

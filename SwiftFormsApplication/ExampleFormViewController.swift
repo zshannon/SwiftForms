@@ -16,6 +16,7 @@ class ExampleFormViewController: FormViewController {
         static let passwordTag = "password"
         static let lastNameTag = "lastName"
         static let jobTag = "job"
+        static let speciesTag = "species"
         static let emailTag = "email"
         static let URLTag = "url"
         static let phoneTag = "phone"
@@ -83,7 +84,13 @@ class ExampleFormViewController: FormViewController {
         row = FormRowDescriptor(tag: Static.jobTag, rowType: .Text, title: "Job")
         row.configuration[FormRowDescriptor.Configuration.CellConfiguration] = ["textField.placeholder" : "e.g. Entrepreneur", "textField.textAlignment" : NSTextAlignment.Right.rawValue]
         section2.addRow(row)
-        
+      
+        row = FormRowDescriptor(tag: Static.speciesTag, rowType: .Text, title: "Species (Read-Only)")
+        row.configuration[FormRowDescriptor.Configuration.CellConfiguration] = ["textField.placeholder" : "e.g. Human", "textField.textAlignment" : NSTextAlignment.Right.rawValue]
+        row.configuration[FormRowDescriptor.Configuration.ReadOnly] = true
+        row.value = "Human"
+        section2.addRow(row)
+      
         let section3 = FormSectionDescriptor()
 
         row = FormRowDescriptor(tag: Static.URLTag, rowType: .URL, title: "URL")

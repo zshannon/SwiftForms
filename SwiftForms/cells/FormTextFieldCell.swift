@@ -25,13 +25,15 @@ public class FormTextFieldCell: FormBaseCell {
         super.configure()
         
         selectionStyle = .None
-        
+      
         titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
         textField.setTranslatesAutoresizingMaskIntoConstraints(false)
 
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        
+      
+        textField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         contentView.addSubview(titleLabel)
         contentView.addSubview(textField)
         
@@ -54,11 +56,15 @@ public class FormTextFieldCell: FormBaseCell {
                 textField.inputAccessoryView = inputAccesoryView()
             }
         }
-    
+      
+        textField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         titleLabel.text = rowDescriptor.title
         textField.text = rowDescriptor.value as? String
         textField.placeholder = rowDescriptor.configuration[FormRowDescriptor.Configuration.Placeholder] as? String
-        
+      
+        textField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
+      
         textField.secureTextEntry = false
         textField.clearButtonMode = .WhileEditing
         
