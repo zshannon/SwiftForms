@@ -24,8 +24,6 @@ public class FormSliderCell: FormTitleCell {
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
       
-        sliderView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
-      
         contentView.addSubview(titleLabel)
         contentView.addSubview(sliderView)
         

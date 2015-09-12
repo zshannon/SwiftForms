@@ -23,8 +23,6 @@ public class FormSwitchCell: FormTitleCell {
         
         switchView.addTarget(self, action: "valueChanged:", forControlEvents: .ValueChanged)
         accessoryView = switchView
-      
-        switchView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
     }
     
     public override func update() {

@@ -27,8 +27,6 @@ public class FormStepperCell: FormTitleCell {
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         countLabel.textAlignment = .Right
       
-        stepperView.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
-      
         contentView.addSubview(titleLabel)
         contentView.addSubview(countLabel)
         contentView.addSubview(stepperView)

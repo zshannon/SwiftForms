@@ -25,9 +25,6 @@ public class FormPickerCell: FormValueCell, UIPickerViewDelegate, UIPickerViewDa
         picker.dataSource = self
         hiddenTextField.inputView = picker
       
-        picker.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
-        hiddenTextField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
-      
         contentView.addSubview(hiddenTextField)
     }
     

@@ -34,8 +34,6 @@ public class FormSegmentedControlCell: FormBaseCell {
         
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
       
-        segmentedControl.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
-      
         contentView.addSubview(titleLabel)
         contentView.addSubview(segmentedControl)
         

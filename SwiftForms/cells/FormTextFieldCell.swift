@@ -32,8 +32,6 @@ public class FormTextFieldCell: FormBaseCell {
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         textField.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
       
-        textField.userInteractionEnabled = false == (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool)
-      
         contentView.addSubview(titleLabel)
         contentView.addSubview(textField)
         
