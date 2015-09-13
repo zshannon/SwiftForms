@@ -108,7 +108,7 @@ public class FormRowDescriptor: NSObject {
     public override init() {
         super.init()
         configuration[Configuration.Required] = true
-        configuration[Configuration.ReadOnly] = true
+        configuration[Configuration.ReadOnly] = false
         configuration[Configuration.AllowsMultipleSelection] = false
         configuration[Configuration.ShowsInputToolbar] = false
     }

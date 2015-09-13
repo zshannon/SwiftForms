@@ -18,10 +18,10 @@ public class FormSliderCell: FormTitleCell {
         super.configure()
         
         selectionStyle = .None
-        
-        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        sliderView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
+      
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        sliderView.translatesAutoresizingMaskIntoConstraints = false
+      
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
       
         contentView.addSubview(titleLabel)

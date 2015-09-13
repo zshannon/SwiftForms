@@ -19,11 +19,11 @@ public class FormStepperCell: FormTitleCell {
         super.configure()
         
         selectionStyle = .None
-        
-        titleLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        stepperView.setTranslatesAutoresizingMaskIntoConstraints(false)
-        countLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
-        
+      
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        stepperView.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
+      
         titleLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         countLabel.textAlignment = .Right
       

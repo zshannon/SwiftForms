@@ -42,7 +42,7 @@ public class FormViewController : UITableViewController {
     }
     
     public required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         baseInit()
     }
     
@@ -112,7 +112,7 @@ public class FormViewController : UITableViewController {
         var cell: FormBaseCell? = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as? FormBaseCell
         if cell == nil {
             
-            cell = formBaseCellClass(style: .Default, reuseIdentifier: reuseIdentifier)
+            cell = formBaseCellClass.init(style: .Default, reuseIdentifier: reuseIdentifier)
             cell?.formViewController = self
             cell?.configure()
         }

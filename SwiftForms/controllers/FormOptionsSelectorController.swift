@@ -21,7 +21,7 @@ public class FormOptionsSelectorController: UITableViewController, FormSelector 
     }
 
     public required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
@@ -54,7 +54,7 @@ public class FormOptionsSelectorController: UITableViewController, FormSelector 
         
         let reuseIdentifier = NSStringFromClass(self.dynamicType)
         
-        var cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier) as? UITableViewCell!
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: reuseIdentifier)
         }
@@ -65,7 +65,7 @@ public class FormOptionsSelectorController: UITableViewController, FormSelector 
         cell!.textLabel!.text = formCell.rowDescriptor.titleForOptionValue(optionValue)
         
         if let selectedOptions = formCell.rowDescriptor.value as? [NSObject] {
-            if (find(selectedOptions, optionValue as NSObject) != nil) {
+            if (selectedOptions.indexOf(optionValue) as? NSObject!) != nil {
                 
                 if let checkMarkAccessoryView = formCell.rowDescriptor.configuration[FormRowDescriptor.Configuration.CheckmarkAccessoryView] as? UIView {
                     cell!.accessoryView = checkMarkAccessoryView
