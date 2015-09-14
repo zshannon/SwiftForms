@@ -59,13 +59,10 @@ public class FormDateCell: FormValueCell {
             let date = rowDescriptor.value as? NSDate
             datePicker.date = date!
             valueLabel.text = self.getDateFormatter().stringFromDate(date!)
-        }
-      
-        if (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool) {
-            valueLabel.textColor = UIColor.grayColor()
+            valueLabel.textColor = UIColor.blackColor()
         }
         else {
-            valueLabel.textColor = UIColor.blackColor()
+            valueLabel.textColor = UIColor.grayColor()
         }
     }
     
