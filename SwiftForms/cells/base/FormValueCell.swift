@@ -47,6 +47,18 @@ public class FormValueCell: FormBaseCell {
         contentView.addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
         contentView.addConstraint(NSLayoutConstraint(item: valueLabel, attribute: .CenterY, relatedBy: .Equal, toItem: contentView, attribute: .CenterY, multiplier: 1.0, constant: 0.0))
     }
+  
+    public override func update() {
+        super.update()
+      
+        if (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool) {
+            accessoryType = .None
+        }
+        else {
+            accessoryType = .DisclosureIndicator
+        }
+      
+    }
     
     public override func constraintsViews() -> [String : UIView] {
         return ["titleLabel" : titleLabel, "valueLabel" : valueLabel]

@@ -60,6 +60,13 @@ public class FormDateCell: FormValueCell {
             datePicker.date = date!
             valueLabel.text = self.getDateFormatter().stringFromDate(date!)
         }
+      
+        if (rowDescriptor.configuration[FormRowDescriptor.Configuration.ReadOnly] as! Bool) {
+            valueLabel.textColor = UIColor.grayColor()
+        }
+        else {
+            valueLabel.textColor = UIColor.blackColor()
+        }
     }
     
     public override class func formViewController(formViewController: FormViewController, didSelectRow selectedRow: FormBaseCell) {
