@@ -30,7 +30,7 @@ public class FormDescriptor: NSObject {
     
     public func formValues() -> NSDictionary {
         
-        var formValues = NSMutableDictionary()
+        let formValues = NSMutableDictionary()
 
         for section in sections {
             for row in section.rows {

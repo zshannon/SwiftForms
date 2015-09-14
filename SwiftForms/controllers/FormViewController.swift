@@ -105,7 +105,7 @@ public class FormViewController : UITableViewController {
         
         let rowDescriptor = formRowDescriptorAtIndexPath(indexPath)
         
-        var formBaseCellClass = formBaseCellClassFromRowDescriptor(rowDescriptor)
+        let formBaseCellClass = formBaseCellClassFromRowDescriptor(rowDescriptor)
         
         let reuseIdentifier = NSStringFromClass(formBaseCellClass)
         
